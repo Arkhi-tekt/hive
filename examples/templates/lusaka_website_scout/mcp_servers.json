@@ -1,0 +1,22 @@
+{
+    "mcpServers": {
+        "web_search": {
+            "command": "uv",
+            "args": [
+                "run",
+                "python",
+                "-m",
+                "aden_tools.tools.web_search_tool"
+            ]
+        },
+        "web_scrape": {
+            "command": "uv",
+            "args": [
+                "run",
+                "python",
+                "-m",
+                "aden_tools.tools.web_scrape_tool"
+            ]
+        }
+    }
+}
