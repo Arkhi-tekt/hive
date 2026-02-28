@@ -13,8 +13,12 @@ def _load_preferred_model() -> str:
             with open(config_path) as f:
                 config = json.load(f)
             llm = config.get("llm", {})
-            if llm.get("provider") and llm.get("model"):
-                return f"{llm['provider']}/{llm['model']}"
+            provider = llm.get("provider")
+            model = llm.get("model")
+            if provider and model:
+                if model.startswith(f"{provider}/"):
+                    return model
+                return f"{provider}/{model}"
         except Exception:
             pass
     return "anthropic/claude-sonnet-4-20250514"
