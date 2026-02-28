@@ -814,7 +814,7 @@ def cmd_list(args: argparse.Namespace) -> int:
 
     agents = []
     for path in directory.iterdir():
-        if path.is_dir() and (path / "agent.json").exists():
+        if _is_valid_agent_dir(path):
             try:
                 runner = AgentRunner.load(path, interactive=False)
                 info = runner.info()

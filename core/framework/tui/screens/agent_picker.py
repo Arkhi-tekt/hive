@@ -62,13 +62,14 @@ def discover_agents() -> dict[str, list[AgentEntry]]:
     )
 
     groups: dict[str, list[AgentEntry]] = {}
-    sources = [
-        ("Your Agents", Path("exports")),
+    project_root = Path(__file__).resolve().parent.parent.parent.parent
+    search_dirs = [
+        ("Your Agents", project_root / "exports"),
         ("Framework", _get_framework_agents_dir()),
-        ("Examples", Path("examples/templates")),
+        ("Examples", project_root / "examples" / "templates"),
     ]
 
-    for category, base_dir in sources:
+    for category, base_dir in search_dirs:
         if not base_dir.exists():
             continue
         entries: list[AgentEntry] = []
@@ -232,7 +233,7 @@ class AgentPickerScreen(ModalScreen[str | None]):
             except Exception:
                 pass
 
-    def on_option_list_selected(self, event: OptionList.Selected) -> None:
+    def on_option_list_option_selected(self, event: OptionList.OptionSelected) -> None:
         list_id = event.option_list.id or ""
         idx = event.option_index
         agent_map = self._option_map.get(list_id, {})
