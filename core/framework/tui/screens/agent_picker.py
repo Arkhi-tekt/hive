@@ -62,7 +62,7 @@ def discover_agents() -> dict[str, list[AgentEntry]]:
     )
 
     groups: dict[str, list[AgentEntry]] = {}
-    project_root = Path(__file__).resolve().parent.parent.parent.parent
+    project_root = Path(__file__).resolve().parent.parent.parent.parent.parent
     search_dirs = [
         ("Your Agents", project_root / "exports"),
         ("Framework", _get_framework_agents_dir()),
