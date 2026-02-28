@@ -3270,6 +3270,19 @@ wheels = [
 ]
 
 [[package]]
+name = "stripe"
+version = "14.4.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "requests" },
+    { name = "typing-extensions" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/6a/ec/0f17cff3f7c91b0215266959c5a2a96b0bf9f45ac041c50b99ad8f9b5047/stripe-14.4.0.tar.gz", hash = "sha256:ddaa06f5e38a582bef7e93e06fc304ba8ae3b4c0c2aac43da02c84926f05fa0a", size = 1472370, upload-time = "2026-02-25T17:52:40.905Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/38/09/fcecad01d76dbe027015dd559ec1b6dccfc319c2540991dde4b1de81ba34/stripe-14.4.0-py3-none-any.whl", hash = "sha256:357151a816cd0bb012d6cb29f108fae50b9f6eece8530d7bc31dfa90c9ceb84c", size = 2115405, upload-time = "2026-02-25T17:52:39.128Z" },
+]
+
+[[package]]
 name = "textual"
 version = "7.5.0"
 source = { registry = "https://pypi.org/simple" }
@@ -3386,6 +3399,7 @@ dependencies = [
     { name = "pypdf" },
     { name = "python-dotenv" },
     { name = "resend" },
+    { name = "stripe" },
 ]
 
 [package.optional-dependencies]
@@ -3456,6 +3470,7 @@ requires-dist = [
     { name = "resend", specifier = ">=2.0.0" },
     { name = "restrictedpython", marker = "extra == 'all'", specifier = ">=7.0" },
     { name = "restrictedpython", marker = "extra == 'sandbox'", specifier = ">=7.0" },
+    { name = "stripe", specifier = ">=14.3.0" },
 ]
 provides-extras = ["dev", "sandbox", "ocr", "excel", "sql", "bigquery", "all"]
 
