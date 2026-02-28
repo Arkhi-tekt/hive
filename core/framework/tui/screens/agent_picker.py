@@ -222,7 +222,17 @@ class AgentPickerScreen(ModalScreen[str | None]):
                 id="picker-footer",
             )
 
-    def on_option_list_option_selected(self, event: OptionList.OptionSelected) -> None:
+    def on_mount(self) -> None:
+        """Focus the first available agent list."""
+        if self._option_map:
+            # Map IDs look like 'list-your-agents'
+            first_list_id = list(self._option_map.keys())[0]
+            try:
+                self.query_one(f"#{first_list_id}", OptionList).focus()
+            except Exception:
+                pass
+
+    def on_option_list_selected(self, event: OptionList.Selected) -> None:
         list_id = event.option_list.id or ""
         idx = event.option_index
         agent_map = self._option_map.get(list_id, {})

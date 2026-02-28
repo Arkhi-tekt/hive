@@ -59,7 +59,7 @@ def _presync_aden_tokens(credential_specs: dict) -> None:
     from framework.credentials.store import CredentialStore
 
     try:
-        aden_store = CredentialStore.with_aden_sync(auto_sync=True)
+        aden_store = CredentialStore.with_aden_sync(auto_sync=False)
     except Exception as e:
         logger.warning("Aden pre-sync unavailable: %s", e)
         return
