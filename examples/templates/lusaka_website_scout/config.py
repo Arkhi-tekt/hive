@@ -8,7 +8,15 @@ class AgentConfig(BaseModel):
 
 default_config = AgentConfig()
 
-metadata = BaseModel()
-metadata.name = "Lusaka Website Scout"
-metadata.version = "0.1.0"
-metadata.description = "Finds and audits poorly designed business websites in Lusaka, Zambia."
+@dataclass
+class AgentMetadata:
+    name: str = "Lusaka Website Scout"
+    version: str = "0.1.0"
+    description: str = "Finds and audits poorly designed business websites in Lusaka, Zambia."
+    intro_message: str = (
+        "Zikomo! I'm your Lusaka Website Scout. I'll search for local businesses, "
+        "audit their websites, and find leads for your design services. "
+        "What category of business should I scout first?"
+    )
+
+metadata = AgentMetadata()
